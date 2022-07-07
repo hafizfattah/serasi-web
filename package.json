@@ -1,0 +1,48 @@
+{
+  "name": "nextjs-strict",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0",
+    "yarn": "^1.22.0",
+    "npm": "please use yarn"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write .",
+    "lint": "eslint './**/*.{ts,tsx}' --max-warnings 0",
+    "lint:ts": "tsc --noemit",
+    "lint:css": "stylelint **/*.{scss,css} --custom-syntax postcss-scss",
+    "lint:css:fix": "stylelint --fix **/*.{scss,css} --custom-syntax postcss-scss"
+  },
+  "dependencies": {
+    "next": "12.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.53.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@types/node": "17.0.23",
+    "@types/react": "17.0.43",
+    "@types/react-dom": "17.0.14",
+    "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "husky": "^8.0.1",
+    "postcss": "^8.4.14",
+    "postcss-scss": "^4.0.4",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1",
+    "stylelint-checkstyle-formatter": "^0.1.2",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-scss": "^4.2.0",
+    "tailwindcss": "^3.0.23",
+    "typescript": "4.6.3"
+  }
+}
