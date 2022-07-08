@@ -14,7 +14,7 @@
     "start": "next start",
     "format": "prettier --write .",
     "lint": "eslint './**/*.{ts,tsx}' --max-warnings 0",
-    "lint:ts": "tsc --noemit",
+    "lint:ts": "tsc",
     "lint:css": "stylelint **/*.{scss,css} --custom-syntax postcss-scss",
     "lint:css:fix": "stylelint --fix **/*.{scss,css} --custom-syntax postcss-scss",
     "storybook": "start-storybook -p 6006",
