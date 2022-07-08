@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "next", "eslint:recommended"],
+  "extends": ["next/core-web-vitals", "next", "eslint:recommended", "plugin:storybook/recommended"],
   "globals": {
     "React": "readonly" // React is a global variable in the browser
   },
@@ -13,6 +13,7 @@
     "no-console": "error",
     "no-plusplus": "off",
     "no-underscore-dangle": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "react/no-unescaped-entities": "off"
   }
 }
