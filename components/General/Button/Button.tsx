@@ -5,7 +5,7 @@ export interface IButton {
 }
 
 const Button = ({sampleTextProp}: IButton) => {
-  return <div className={styles.container}>{sampleTextProp}</div>;
+  return <h1 className={styles.heading}>{sampleTextProp}</h1>;
 };
 
 export default Button;

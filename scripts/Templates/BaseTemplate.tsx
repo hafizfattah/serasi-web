@@ -5,7 +5,7 @@ export interface IBaseTemplate {
 }
 
 const BaseTemplate = ({sampleTextProp}: IBaseTemplate) => {
-  return <div className={styles.container}>{sampleTextProp}</div>;
+  return <h1 className={styles.heading}>{sampleTextProp}</h1>;
 };
 
 export default BaseTemplate;

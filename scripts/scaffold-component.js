@@ -1,14 +1,8 @@
-import fs from 'fs-extra';
-import inquirer from 'inquirer';
-import path from 'path';
+const path = require('path');
+const fs = require('fs-extra');
+const inquirer = require('inquirer');
 
-let componentNameKebabCase;
-
-const __dirname = path.resolve(path.dirname(''));
-const paths = {
-  templates: path.resolve(__dirname, 'components/Templates'),
-};
-const PLACEHOLDER = 'BaseTemplate';
+const pathTemplate = path.resolve(__dirname, './Templates');
 
 function askQuestions() {
   const questions = [
@@ -34,11 +28,13 @@ function createDirectory(directory) {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, {recursive: true});
   }
+  console.log('successfull create Directory');
 }
 
 function formatComponentData(answer) {
   componentData = {
     name: answer.name,
+    type: answer.type,
     path: `./components/${answer.type}/${answer.name}`,
   };
 
@@ -47,17 +43,18 @@ function formatComponentData(answer) {
 
 function renderTemplate(filePath) {
   let content = fs.readFileSync(filePath, 'utf8');
-  // content = ejs.render(content, componentData);
   content = content.replace(/BaseTemplate/g, componentData.name);
+  content = content.replace(/templates/g, componentData.type);
+
   fs.writeFileSync(filePath, content);
 }
 
 function formatTemplate() {
-  const files = fs.readdirSync(paths.templates);
+  const files = fs.readdirSync(pathTemplate);
 
   files.forEach((filename) => {
-    const filePath = path.resolve(paths.templates, filename);
-    const newFilepath = path.resolve(componentData.path, filename.replace(PLACEHOLDER, componentData.name));
+    const filePath = path.resolve(pathTemplate, filename);
+    const newFilepath = path.resolve(componentData.path, filename.replace('BaseTemplate', componentData.name));
 
     // copy templates
     fs.copySync(filePath, newFilepath);
@@ -73,7 +70,7 @@ function run() {
     .then(formatComponentData)
     .then(formatTemplate)
     .then(() => {
-      console.log(`Your component already generated ${componentData}`);
+      console.log(`Your component already generated ${componentData.path}`);
     });
 }
 

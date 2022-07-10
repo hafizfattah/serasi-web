@@ -52,7 +52,7 @@
     "eslint-plugin-storybook": "^0.5.13",
     "fs-extra": "^10.1.0",
     "husky": "^8.0.1",
-    "inquirer": "^9.0.0",
+    "inquirer": "^8.1.2",
     "postcss": "^8.4.14",
     "postcss-scss": "^4.0.4",
     "prettier": "^2.7.1",
