@@ -3,17 +3,29 @@ import {ButtonHTMLAttributes, ReactNode, useMemo} from 'react';
 import './Button.scss';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** HTML Element */
   children: ReactNode;
-  variant: 'primary' | 'secondary' | 'outline' | 'ghost';
-  size: 'small' | 'medium' | 'large';
+  /** `primary`, `secondary`, `outline`, `ghost` */
+  variant?: string;
+  /** `small`, `medium`, `large` */
+  size?: string;
   disabled?: boolean;
   loading?: boolean;
+  fullwidth?: boolean;
 }
 
-const Button = ({children, variant, size, disabled, loading, ...props}: IButton) => {
+const Button = ({
+  children,
+  variant = 'primary',
+  size = 'medium',
+  disabled = false,
+  loading = false,
+  fullwidth = false,
+  ...props
+}: IButton) => {
   const classNames = useMemo(() => {
-    return cx('button', `button--${variant} button--${size} ${disabled ? 'button--disabled' : ''}`);
-  }, [variant, size, disabled]);
+    return cx('button', `button--${variant} button--${size} ${disabled ? 'button--disabled' : ''} ${fullwidth ? 'button--fullwidth' : ''}`);
+  }, [variant, size, disabled, fullwidth]);
 
   // const buttonAria = useMemo(() => {
   //   return {

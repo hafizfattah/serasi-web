@@ -1,5 +1,6 @@
 import * as NextImage from 'next/image';
 import '../styles/normalize.scss';
+import '../styles/tailwind.scss';
 
 const BREAKPOINTS_INT = {
   xs: 375,

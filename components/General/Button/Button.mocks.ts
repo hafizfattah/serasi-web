@@ -1,7 +1,7 @@
 import {IButton} from './Button';
 
-export const VARIATION = ['primary', 'secondary', 'outline', 'ghost'];
-export const SIZE = ['large', 'medium', 'small'];
+export const VARIANTS = ['primary', 'secondary', 'outline', 'ghost'];
+export const SIZES = ['large', 'medium', 'small'];
 
 const base: IButton = {
   children: 'Hello Button!',
@@ -9,17 +9,9 @@ const base: IButton = {
   size: 'medium',
   disabled: false,
   loading: false,
+  fullwidth: false,
 };
 
-const size: IButton = {
-  children: 'xxx',
-  variant: 'secondary',
-  size: 'small',
-  disabled: false,
-  loading: false,
-};
-
-export const mockButtonProps = {
+export const buttonProps = {
   base,
-  size,
 };

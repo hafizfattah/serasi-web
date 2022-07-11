@@ -1,6 +1,6 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import Button, {IButton} from './Button';
-import {mockButtonProps, SIZE, VARIATION} from './Button.mocks';
+import {buttonProps, SIZES, VARIANTS} from './Button.mocks';
 
 export default {
   title: 'General/Button',
@@ -8,12 +8,12 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     variant: {
-      control: 'select',
-      options: VARIATION,
+      control: 'radio',
+      options: VARIANTS,
     },
     size: {
-      control: 'select',
-      options: SIZE,
+      control: 'radio',
+      options: SIZES,
     },
   },
 } as ComponentMeta<typeof Button>;
@@ -21,51 +21,81 @@ export default {
 // More on component General: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-const TemplateSize: ComponentStory<typeof Button> = (args) => {
-  return (
-    <div>
-      <Button {...args} size="small" variant="primary">
-        Small
-      </Button>
-      <Button {...args} size="medium" variant="primary">
-        Medium
-      </Button>
-      <Button {...args} size="large" variant="primary">
-        Large
-      </Button>
-    </div>
-  );
-};
-
 const TemplateVariants: ComponentStory<typeof Button> = (args) => {
   return (
     <div>
-      <Button {...args} size="medium" variant="primary">
-        primary
-      </Button>
-      <Button {...args} size="medium" variant="secondary">
-        secondary
-      </Button>
-      <Button {...args} size="medium" variant="outline">
-        outline
-      </Button>
-      <Button {...args} size="medium" variant="ghost">
-        ghost
+      <div className="flex flex-row items-center">
+        {VARIANTS.map((variant, index) => (
+          <div className="mr-4" key={index}>
+            <Button {...args} size="medium" variant={variant}>
+              <span className="capitalize">{variant}</span>
+            </Button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const TemplateSize: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div className="flex flex-row items-center">
+      {SIZES.map((size, index) => (
+        <div className="mr-4" key={index}>
+          <Button {...args} variant="primary" size={size}>
+            <span className="capitalize">{size}</span>
+          </Button>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const TemplateLoading: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div className="flex flex-row items-center">
+      <div className="mr-4">
+        <Button {...args} size="medium" loading variant="primary">
+          loading..
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+const TemplateDisabled: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div>
+      <div className="flex flex-row items-center">
+        {VARIANTS.map((variant, index) => (
+          <div className="mr-4" key={index}>
+            <Button {...args} size="medium" disabled variant={variant}>
+              <span className="capitalize">{variant}</span>
+            </Button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const TemplateFullWidth: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div>
+      <Button {...args} size="medium" fullwidth variant="primary">
+        Full width button
       </Button>
     </div>
   );
 };
 
-// export const Overview = Template.bind({});
-// Overview.args = {
-//   ...mockButtonProps.base,
-// } as IButton;
-
-export const Base = Template.bind({});
-Base.args = {
-  ...mockButtonProps.base,
+export const Playground = Template.bind({});
+Playground.args = {
+  ...buttonProps.base,
 } as IButton;
 
-export const Variant = TemplateVariants.bind({});
-
+export const Variants = TemplateVariants.bind({});
 export const Sizes = TemplateSize.bind({});
+export const Disabled = TemplateDisabled.bind({});
+export const Loading = TemplateLoading.bind({});
+export const Fullwidth = TemplateFullWidth.bind({});
