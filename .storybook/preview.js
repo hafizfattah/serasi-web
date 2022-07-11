@@ -1,6 +1,5 @@
 import * as NextImage from 'next/image';
 import '../styles/normalize.scss';
-import './custom.scss';
 
 const BREAKPOINTS_INT = {
   xs: 375,

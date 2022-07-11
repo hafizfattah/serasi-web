@@ -1,0 +1,93 @@
+// Button Style goes here
+
+.button {
+  border: 2px solid #18191f;
+  border-radius: 6px;
+  cursor: pointer;
+  .spinner .path {
+    stroke: #ffffff;
+  }
+  &--primary {
+    background-color: #18191f;
+    color: #ffffff;
+  }
+  &--secondary {
+    background-color: #1947e5;
+    border: 2px solid #1947e5;
+    color: #ffffff;
+  }
+  &--outline {
+    background-color: #ffffff;
+    color: #18191f;
+    .spinner .path {
+      stroke: #18191f;
+    }
+  }
+  &--ghost {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #18191f;
+    .spinner .path {
+      stroke: #18191f;
+    }
+  }
+  &--small {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+  &--medium {
+    padding: 12px;
+    font-size: 1rem;
+  }
+  &--large {
+    padding: 16px;
+    font-size: 1.2rem;
+  }
+
+  &--disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+  .relative {
+    position: relative;
+  }
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  & .path {
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
