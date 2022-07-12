@@ -1,19 +1,22 @@
 {
   "name": "@hafizfattah/serasi-web",
   "author": "hafiz fattah",
+  "description": "Another react component library",
   "version": "0.1.0",
   "engines": {
     "node": ">=14.0.0",
     "yarn": "^1.22.0",
     "npm": "please use yarn"
   },
-  "private": true,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "prepare": "husky install",
     "create:component": "node scripts/scaffold-component.js",
