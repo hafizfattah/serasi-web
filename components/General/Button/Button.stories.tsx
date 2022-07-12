@@ -1,4 +1,5 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react';
+import {Camera, Download, Printer} from 'react-feather';
 import Button, {IButton} from './Button';
 import {buttonProps, SIZES, VARIANTS} from './Button.mocks';
 
@@ -53,13 +54,9 @@ const TemplateSize: ComponentStory<typeof Button> = (args) => {
 
 const TemplateLoading: ComponentStory<typeof Button> = (args) => {
   return (
-    <div className="flex flex-row items-center">
-      <div className="mr-4">
-        <Button {...args} size="medium" loading variant="primary">
-          loading..
-        </Button>
-      </div>
-    </div>
+    <Button {...args} size="medium" loading variant="primary">
+      loading..
+    </Button>
   );
 };
 
@@ -81,10 +78,30 @@ const TemplateDisabled: ComponentStory<typeof Button> = (args) => {
 
 const TemplateFullWidth: ComponentStory<typeof Button> = (args) => {
   return (
-    <div>
-      <Button {...args} size="medium" fullwidth variant="primary">
-        Full width button
-      </Button>
+    <Button {...args} size="medium" fullwidth variant="primary">
+      Full width
+    </Button>
+  );
+};
+
+const TemplateWithIcon: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div className="flex flex-row items-center">
+      <div className="mr-4">
+        <Button {...args} size="medium" variant="primary">
+          <Camera className="inline-block" />
+        </Button>
+      </div>
+      <div className="mr-4">
+        <Button {...args} size="medium" variant="primary">
+          <Download className="inline-block" /> Download
+        </Button>
+      </div>
+      <div className="mr-4">
+        <Button {...args} size="medium" variant="primary">
+          Print <Printer className="inline-block" />
+        </Button>
+      </div>
     </div>
   );
 };
@@ -99,3 +116,4 @@ export const Sizes = TemplateSize.bind({});
 export const Disabled = TemplateDisabled.bind({});
 export const Loading = TemplateLoading.bind({});
 export const Fullwidth = TemplateFullWidth.bind({});
+export const WithIcon = TemplateWithIcon.bind({});
