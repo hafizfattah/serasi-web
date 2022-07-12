@@ -29,6 +29,6 @@
     "declaration": true,
     "declarationDir": "./types"
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["./components/**/*.ts", "./components/**/*.tsx"],
   "exclude": ["node_modules"]
 }
