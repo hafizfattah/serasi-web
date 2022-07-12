@@ -1,4 +1,5 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react';
+import React from 'react';
 import {Camera, Download, Printer} from 'react-feather';
 import Button, {IButton} from './Button';
 import {buttonProps, SIZES, VARIANTS} from './Button.mocks';
