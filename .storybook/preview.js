@@ -1,4 +1,3 @@
-import * as NextImage from 'next/image';
 import '../styles/normalize.scss';
 import '../styles/tailwind.scss';
 
@@ -26,12 +25,12 @@ const customViewports = Object.fromEntries(
 );
 
 // Allow Storybook to handle Next's <Image> component
-const OriginalNextImage = NextImage.default;
+// const OriginalNextImage = NextImage.default;
 
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-});
+// Object.defineProperty(NextImage, 'default', {
+//   configurable: true,
+//   value: (props) => <OriginalNextImage {...props} unoptimized />,
+// });
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},

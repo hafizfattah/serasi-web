@@ -1,5 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "next", "eslint:recommended", "plugin:storybook/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["eslint:recommended", "plugin:storybook/recommended"],
   "globals": {
     "React": "readonly" // React is a global variable in the browser
   },
