@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import React, {ButtonHTMLAttributes, ReactNode, useMemo} from 'react';
-import './Button.scss';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** HTML Element */

@@ -1,12 +1,19 @@
 {
-  "name": "we-web",
+  "name": "serasi",
+  "author": "hafiz fattah",
   "version": "0.1.0",
-  "private": true,
   "engines": {
     "node": ">=14.0.0",
     "yarn": "^1.22.0",
     "npm": "please use yarn"
   },
+  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "husky install",
     "create:component": "node scripts/scaffold-component.js",
@@ -16,7 +23,8 @@
     "lint:css": "stylelint **/*.{scss,css} --custom-syntax postcss",
     "lint:css:fix": "stylelint --fix **/*.{scss,css} --custom-syntax postcss",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "rollup": "rollup -c"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -28,6 +36,9 @@
     "@babel/core": "^7.18.6",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
@@ -55,6 +66,8 @@
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
     "prettier": "^2.7.1",
+    "rollup": "^2.76.0",
+    "rollup-plugin-dts": "^4.2.2",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
