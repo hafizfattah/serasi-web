@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
+import {terser} from 'rollup-plugin-terser';
 const tailwindcss = require('tailwindcss');
 
 const packageJson = require('./package.json');
@@ -29,6 +30,7 @@ export default [
       postcss({
         plugins: [tailwindcss('./tailwind.config.js'), require('autoprefixer'), require('cssnano')({preset: 'default'})],
       }),
+      terser(),
     ],
   },
   {
