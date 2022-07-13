@@ -1,5 +1,5 @@
-import '../src/styles/main.scss';
-import '../src/styles/normalize.scss';
+import '../src/styles/tailwind.scss';
+import './main.css';
 
 const BREAKPOINTS_INT = {
   xs: 375,

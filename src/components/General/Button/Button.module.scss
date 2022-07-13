@@ -6,9 +6,6 @@
   background-color: #18191f;
   color: #ffffff;
   cursor: pointer;
-  .spinner .path {
-    stroke: #ffffff;
-  }
 
   &--secondary {
     background-color: #1947e5;
@@ -42,7 +39,6 @@
     padding: 16px;
     font-size: 1.2rem;
   }
-
   &--disabled {
     opacity: 0.8;
     cursor: not-allowed;
@@ -52,14 +48,10 @@
     display: block;
     text-align: center;
   }
-  .invisible {
-    visibility: hidden;
-  }
-  .relative {
-    position: relative;
+  &--loading {
+    pointer-events: none;
   }
 }
-
 .spinner {
   animation: rotate 2s linear infinite;
   width: 24px;
@@ -69,11 +61,13 @@
   left: 50%;
   margin-left: -12px;
   margin-top: -12px;
-  & .path {
-    stroke-linecap: round;
-    animation: dash 1.5s ease-in-out infinite;
-  }
 }
+.path {
+  stroke: #ffffff;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);

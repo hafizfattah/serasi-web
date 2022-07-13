@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
+const tailwindcss = require('tailwindcss');
 
 const packageJson = require('./package.json');
 
@@ -21,7 +22,14 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [resolve(), commonjs(), typescript({tsconfig: './tsconfig.json'}), postcss()],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({tsconfig: './tsconfig.json'}),
+      postcss({
+        plugins: [tailwindcss('./tailwind.config.js'), require('autoprefixer'), require('cssnano')({preset: 'default'})],
+      }),
+    ],
   },
   {
     input: 'dist/esm/lib/components/index.d.ts',
