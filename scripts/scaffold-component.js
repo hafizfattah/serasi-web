@@ -35,7 +35,7 @@ function formatComponentData(answer) {
   componentData = {
     name: answer.name,
     type: answer.type,
-    path: `./components/${answer.type}/${answer.name}`,
+    path: `./src/components/${answer.type}/${answer.name}`,
   };
 
   createDirectory(componentData.path);
