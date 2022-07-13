@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const inquirer = require('inquirer');
 
 const pathTemplate = path.resolve(__dirname, './Templates');
+const pathComponentsIndex = path.resolve(__dirname, '../src/components/index.ts');
 
 function askQuestions() {
   const questions = [
@@ -64,11 +65,21 @@ function formatTemplate() {
   });
 }
 
+function updateComponentsIndex() {
+  // fs.writeFileSync(pathComponentsIndex, 'Hey there!');
+  let templateString = `export {default as ${componentData.name}} from './${componentData.type}/${componentData.name}';`;
+  let content = fs.readFileSync(pathComponentsIndex, 'utf8');
+  content = content + templateString;
+
+  fs.writeFileSync(pathComponentsIndex, content);
+}
+
 function run() {
   Promise.resolve()
     .then(askQuestions)
     .then(formatComponentData)
     .then(formatTemplate)
+    .then(updateComponentsIndex)
     .then(() => {
       console.log(`Your component already generated ${componentData.path}`);
     });
