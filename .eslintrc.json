@@ -2,7 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:storybook/recommended"],
-  "ignorePatterns": ["dist/", "types/"],
+  "ignorePatterns": ["dist", "types", "storybook-static"],
   "globals": {
     "React": "readonly" // React is a global variable in the browser
   },
