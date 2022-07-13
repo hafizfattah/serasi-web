@@ -1,5 +1,6 @@
 import cx from 'classnames';
-import React, {ButtonHTMLAttributes, ReactNode, useMemo} from 'react';
+import React, {ButtonHTMLAttributes, ReactNode} from 'react';
+import './Button.scss';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** HTML Element */
@@ -22,19 +23,20 @@ const Button = ({
   fullwidth = false,
   ...props
 }: IButton) => {
-  const classNames = useMemo(() => {
-    return cx('button', `button--${variant} button--${size} ${disabled ? 'button--disabled' : ''} ${fullwidth ? 'button--fullwidth' : ''}`);
-  }, [variant, size, disabled, fullwidth]);
-
-  // const buttonAria = useMemo(() => {
-  //   return {
-  //     'aria-disabled': disabled,
-  //     'aria-busy': loading ? 'true' : undefined,
-  //   };
-  // }, [loading, disabled]);
-
+  const buttonClass = cx({
+    'button--primary': variant === 'primary',
+    'button--secondary': variant === 'secondary',
+    'button--outline': variant === 'outline',
+    'button--ghost': variant === 'ghost',
+    'button--small': size === 'small',
+    'button--medium': size === 'medium',
+    'button--large': size === 'large',
+    'button--disabled': disabled,
+    'button--fullwidth': fullwidth,
+    'button--loading': loading,
+  });
   return (
-    <button className={classNames} disabled={disabled} {...props}>
+    <button className={`button ${buttonClass}`} disabled={disabled} {...props}>
       {loading ? (
         <div className="relative">
           <svg className="spinner" viewBox="0 0 50 50">
