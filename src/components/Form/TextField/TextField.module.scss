@@ -1,0 +1,36 @@
+// TextField Style goes here
+.textfield {
+  border: 2px solid #18191f;
+  border-radius: 6px;
+  color: #18191f;
+  padding: 12px;
+  font-size: 1rem;
+  &:focus {
+    outline: none;
+    & + .label {
+      display: none;
+    }
+    &::placeholder {
+      color: #75767a;
+    }
+  }
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+.label {
+  position: absolute;
+  top: 20px;
+  font-size: 1rem;
+  margin: 10px;
+  padding: 0 4px;
+  color: #18191f;
+  -webkit-transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+  &.active {
+    top: 0;
+    font-size: 0.8rem;
+    background-color: white;
+  }
+}
