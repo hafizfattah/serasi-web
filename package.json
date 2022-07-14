@@ -2,7 +2,7 @@
   "name": "@hafizfattah/serasi-web",
   "author": "hafiz fattah",
   "description": "Another react component library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "node": ">=14.0.0",
     "yarn": "^1.22.0",
@@ -30,12 +30,6 @@
     "build-storybook": "build-storybook",
     "rollup": "yarn clean && rollup -c"
   },
-  "dependencies": {
-    "classnames": "^2.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-feather": "^2.0.10"
-  },
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@commitlint/cli": "^17.0.2",
@@ -59,6 +53,7 @@
     "@typescript-eslint/parser": "^5.30.6",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
+    "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "cssnano": "^5.1.12",
@@ -70,10 +65,14 @@
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
     "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^2.76.0",
     "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "storybook-css-modules": "^1.0.8",
@@ -85,7 +84,9 @@
     "tailwindcss": "^3.1.5",
     "typescript": "4.6.3"
   },
-  "resolutions": {
-    "webpack": "^5"
-  }
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "dependencies": {}
 }

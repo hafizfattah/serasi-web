@@ -1,9 +1,10 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import {terser} from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 const tailwindcss = require('tailwindcss');
 
 const packageJson = require('./package.json');
@@ -24,6 +25,7 @@ export default [
       },
     ],
     plugins: [
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({tsconfig: './tsconfig.json'}),
@@ -34,9 +36,9 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/lib/components/index.d.ts',
+    input: 'dist/esm/components/index.d.ts',
     output: [{file: 'dist/index.d.ts', format: 'esm'}],
     plugins: [dts()],
-    external: [/\.(css|less|scss)$/],
+    external: ['react', 'react-dom'],
   },
 ];
