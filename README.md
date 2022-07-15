@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GETTING STARTED WITH SERASI
 
-## Getting Started
+<Subtitle>
+  Use the Serasi components to solve common UI problems like layout, typography, displaying product or data input. When no component fits
+  your case, either extend an existing one or create a new one on guild components.
+</Subtitle>
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
+Serasi is typically installed into a project managed by npm or yarn as a JavaScript package from the Hafizfattah GitHub Package Registry.
+
+Now add this project as a dependency of your project with:
+
+```
+  yarn add @Hafizfattah/serasi-web
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+  npm install @Hafizfattah/serasi-web
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## How to Use
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+We ship two types of module formats: CommonJS and ESModules. Most modern build tools will use the latter resolved from the package.json module entry. To keep our module code as clean as possible, we try to use the latest possible ECMAScript version as target for our transpilation. So if you have to support browsers that don't support certain modern ECMAScript features, you may want to configure your build tools accordingly.
 
-## Learn More
+### Import as Global Component
 
-To learn more about Next.js, take a look at the following resources:
+With this kind of import, you will include the whole bundle of the library, but you can use all components directly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+import { SerasiProvider } from '@Hafizfattah/serasi-web'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ReactDOM.render(
+  <SerasiProvider>
+    <App />
+  </SerasiProvider>,
+)
+```
 
-## Deploy on Vercel
+### Selective Import
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Don't forget to install babel-import-plugin and setup babel config, otherwise you'll include the whole bundle and can't resolve component's style
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+import { Button, TextField } from '@Hafizfattah/serasi-web'
+
+const MyComponent = () => (
+ <div>
+  <TextField label="Search" />
+  <Button variant="primary" size="large">
+    Submit
+  </Button>
+ </div>
+)
+```

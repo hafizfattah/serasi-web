@@ -1,7 +1,7 @@
 import {Meta, Subtitle} from '@storybook/addon-docs';
 
 <Meta
-  title="Contribution Guides"
+  title="Welcome/Contribution Guides"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -14,4 +14,41 @@ import {Meta, Subtitle} from '@storybook/addon-docs';
 
 <Subtitle>Everyone is welcome to contribute to Serasi library.</Subtitle>
 
-...Coming soon
+### Clone the repository
+
+`git@github.com:hafizfattah/serasi-web.git`
+
+### Install dependencies
+
+`yarn install`
+
+### Create your component via CLI
+
+`yarn create:component`
+
+Question propmt will popoup,
+
+- insert your component name (PascalCased) and hit enter.
+- Choose your component type (e.g. `General`, `Form`, `Navigation`) and hit enter.
+
+It will automatically generate the component's template under `src/components/YOUR_SELECTED_COMPONENT_TYPE` folder.
+
+### Run storybook
+
+`yarn storybook`
+
+You can test your component on storybook
+
+### Build your component for testing
+
+`yarn rollup`
+
+### Test your component on seperate project
+
+To make sure your components works well, we suggest to test your component behavior on a seperate project.
+
+`yarn link`
+
+On your other project run this command
+
+`npm link @hafizfattah/serasi-web`

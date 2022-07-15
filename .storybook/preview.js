@@ -53,7 +53,8 @@ addParameters({
     showAddonsPanel: true,
     panelPosition: 'bottom',
     storySort: {
-      method: 'alphabetical',
+      // method: 'alphabetical',
+      order: ['Welcome', ['Introduction', 'Getting Started', 'Contribution Guides'], 'Components'],
     },
     theme,
   },
