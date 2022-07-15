@@ -6,7 +6,10 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-a11y',
     'storybook-css-modules',
+    'storybook-addon-performance/register',
+    'storybook-addon-themes',
     {
       name: '@storybook/addon-postcss',
       options: {
