@@ -1,36 +1,81 @@
 // TextField Style goes here
-.textfield {
-  border: 2px solid #18191f;
+.textfield-wrapper {
   border-radius: 6px;
-  color: #18191f;
-  padding: 12px;
-  font-size: 1rem;
-  &:focus {
-    outline: none;
-    & + .label {
-      display: none;
+  border: 2px solid hsl(231, 13%, 11%);
+  padding: 1px;
+  display: flex;
+  position: relative;
+  .prefix {
+    background-color: #18191f;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin: -1px;
+  }
+  .textfield {
+    color: #18191f;
+    padding: 12px;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    &:focus {
+      outline: none;
     }
     &::placeholder {
       color: #75767a;
     }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
   }
-  &::placeholder {
-    color: transparent;
+  .textfield__label {
+    position: absolute;
+    padding: 0 6px;
+    padding-top: 2px;
+    color: #18191f;
+    top: -10px;
+    left: 6px;
+    font-size: 0.8rem;
+    background-color: white;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
   }
 }
 
-.label {
-  position: absolute;
-  top: 20px;
-  font-size: 1rem;
-  margin: 10px;
-  padding: 0 4px;
-  color: #18191f;
-  -webkit-transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
-  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
-  &.active {
-    top: 0;
-    font-size: 0.8rem;
-    background-color: white;
+.disabled {
+  .textfield-wrapper {
+    background-color: rgb(228, 228, 228);
+    opacity: 0.6;
   }
+  .textfield {
+    cursor: not-allowed;
+  }
+}
+.error {
+  .textfield-wrapper {
+    border: 2px solid red;
+  }
+  .label,
+  .message {
+    color: red;
+  }
+}
+.message {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #75767a;
+}
+.reveal {
+  padding: 0 12px;
+}
+.required {
+  color: red;
+  display: inline-block;
+  margin-right: 2px;
 }

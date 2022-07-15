@@ -1,6 +1,7 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
-import {Camera, Download, Printer} from 'react-feather';
+import {FaCamera, FaDownload, FaUpload} from 'react-icons/fa';
+
 import Button, {IButton} from './Button';
 import {buttonProps, SIZES, VARIANTS} from './Button.mocks';
 
@@ -90,17 +91,17 @@ const TemplateWithIcon: ComponentStory<typeof Button> = (args) => {
     <div className="flex flex-row items-center">
       <div className="mr-4">
         <Button {...args} size="medium" variant="primary">
-          <Camera className="inline-block" />
+          <FaCamera className="inline-block" />
         </Button>
       </div>
       <div className="mr-4">
         <Button {...args} size="medium" variant="primary">
-          <Download className="inline-block" /> Download
+          <FaDownload className="inline-block" /> Download
         </Button>
       </div>
       <div className="mr-4">
         <Button {...args} size="medium" variant="primary">
-          Print <Printer className="inline-block" />
+          Print <FaUpload className="inline-block" />
         </Button>
       </div>
     </div>
