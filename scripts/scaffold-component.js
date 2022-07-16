@@ -29,7 +29,6 @@ function createDirectory(directory) {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, {recursive: true});
   }
-  console.log('successfull create Directory');
 }
 
 function formatComponentData(answer) {
@@ -81,7 +80,8 @@ function run() {
     .then(formatTemplate)
     .then(updateComponentsIndex)
     .then(() => {
-      console.log(`Your component already generated ${componentData.path}`);
+      // eslint-disable-next-line no-console
+      console.info(`Your component successfully generated in ${componentData.path}`);
     });
 }
 

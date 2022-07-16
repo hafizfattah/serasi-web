@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, {forwardRef, HTMLAttributes, useState} from 'react';
+import React, {ChangeEventHandler, forwardRef, HTMLAttributes, useState} from 'react';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import styles from './TextField.module.scss';
 
@@ -19,8 +19,7 @@ export interface ITextField extends Omit<HTMLAttributes<HTMLInputElement>, 'disa
   passwordReveal?: boolean;
   prefix?: string;
   suffix?: string;
-
-  onChange?: () => void;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 const TextField = forwardRef<HTMLInputElement, ITextField>(
