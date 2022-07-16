@@ -5,18 +5,17 @@ import styles from './Button.module.scss';
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** HTML Element */
   children: ReactNode;
-  /** `primary`, `secondary`, `outline`, `ghost` */
-  variant?: string;
-  /** `small`, `medium`, `large` */
-  size?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   loading?: boolean;
   fullwidth?: boolean;
+  onClick?: () => void;
 }
 
 const Button = forwardRef<HTMLButtonElement, IButton>(
   (
-    {children, variant = 'primary', size = 'medium', disabled = false, loading = false, fullwidth = false, ...props}: IButton,
+    {children, variant = 'primary', size = 'medium', disabled = false, loading = false, fullwidth = false, onClick, ...props}: IButton,
     ref: React.Ref<any>
   ) => {
     const checkFullwidthClass = fullwidth ? styles['button--fullwidth'] : '';
@@ -31,11 +30,12 @@ const Button = forwardRef<HTMLButtonElement, IButton>(
         aria-busy={loading}
         aria-disabled={disabled}
         aria-pressed="false"
+        onClick={onClick}
         {...props}
       >
         {loading ? (
           <div className="relative">
-            <svg className={styles.spinner} viewBox="0 0 50 50">
+            <svg className={styles['button--spinner']} viewBox="0 0 50 50">
               <circle className={styles.path} cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
             </svg>
             <span className="invisible">{children}</span>

@@ -1,43 +1,47 @@
 // Button Style goes here
+@import '../../../styles/token.scss';
 
 .button {
-  border: 2px solid #18191f;
-  border-radius: 6px;
-  background-color: #18191f;
-  color: #ffffff;
+  border: 2px solid $serasi-primary;
+  background-color: $serasi-primary;
+  color: $serasi-white;
   cursor: pointer;
+  line-height: 1;
 
   &--secondary {
-    background-color: #1947e5;
-    border: 2px solid #1947e5;
-    color: #ffffff;
+    background-color: $serasi-secondary;
+    border: 2px solid $serasi-secondary;
+    color: $serasi-white;
   }
   &--outline {
-    background-color: #ffffff;
-    color: #18191f;
-    .spinner .path {
-      stroke: #18191f;
+    background-color: transparent;
+    color: $serasi-primary;
+    .button--spinner .path {
+      stroke: $serasi-primary;
     }
   }
   &--ghost {
     background-color: transparent;
     border: 2px solid transparent;
-    color: #18191f;
-    .spinner .path {
-      stroke: #18191f;
+    color: $serasi-primary;
+    .button--spinner .path {
+      stroke: $serasi-primary;
     }
   }
   &--small {
-    padding: 8px;
-    font-size: 0.8rem;
+    padding: 10px;
+    font-size: $serasi-font-small;
+    border-radius: $serasi-radius-small;
   }
   &--medium {
     padding: 12px;
-    font-size: 1rem;
+    font-size: $serasi-font-medium;
+    border-radius: $serasi-radius-medium;
   }
   &--large {
-    padding: 16px;
-    font-size: 1.2rem;
+    padding: 14px;
+    font-size: $serasi-font-large;
+    border-radius: $serasi-radius-large;
   }
   &--disabled {
     opacity: 0.8;
@@ -51,21 +55,21 @@
   &--loading {
     pointer-events: none;
   }
-}
-.spinner {
-  animation: rotate 2s linear infinite;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -12px;
-  margin-top: -12px;
-}
-.path {
-  stroke: #ffffff;
-  stroke-linecap: round;
-  animation: dash 1.5s ease-in-out infinite;
+  &--spinner {
+    animation: rotate 2s linear infinite;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    .path {
+      stroke: $serasi-white;
+      stroke-linecap: round;
+      animation: dash 1.5s ease-in-out infinite;
+    }
+  }
 }
 
 @keyframes rotate {

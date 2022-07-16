@@ -24,8 +24,8 @@
     "format": "prettier --write .",
     "lint": "eslint './**/*.{ts,tsx}' --max-warnings 0",
     "lint:ts": "tsc",
-    "lint:css": "stylelint **/*.{scss,css} --custom-syntax postcss",
-    "lint:css:fix": "stylelint --fix **/*.{scss,css} --custom-syntax postcss",
+    "lint:css": "stylelint **/*.{scss,css} --custom-syntax postcss-scss",
+    "lint:css:fix": "stylelint **/*.{scss,css} --fix --custom-syntax postcss-scss",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "rollup": "yarn clean && rollup -c"
@@ -67,6 +67,7 @@
     "inquirer": "^8.1.2",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
+    "postcss-scss": "^4.0.4",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

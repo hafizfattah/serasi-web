@@ -1,20 +1,22 @@
 // TextField Style goes here
+@import '../../../styles/token.scss';
+
 .textfield-wrapper {
-  border-radius: 6px;
-  border: 2px solid hsl(231, 13%, 11%);
+  border-radius: $serasi-radius-medium;
+  border: 2px solid $serasi-primary;
   padding: 1px;
   display: flex;
   position: relative;
   .prefix {
-    background-color: #18191f;
-    color: #ffffff;
+    background-color: $serasi-primary;
+    color: $serasi-white;
     display: flex;
     align-items: center;
     padding: 8px;
     margin: -1px;
   }
   .textfield {
-    color: #18191f;
+    color: $serasi-primary;
     padding: 12px;
     font-size: 1rem;
     display: block;
@@ -23,7 +25,7 @@
       outline: none;
     }
     &::placeholder {
-      color: #75767a;
+      color: $serasi-placeholder;
     }
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -38,7 +40,7 @@
     position: absolute;
     padding: 0 6px;
     padding-top: 2px;
-    color: #18191f;
+    color: $serasi-primary;
     top: -10px;
     left: 6px;
     font-size: 0.8rem;
@@ -59,23 +61,23 @@
 }
 .error {
   .textfield-wrapper {
-    border: 2px solid red;
+    border: 2px solid $serasi-error;
   }
   .label,
   .message {
-    color: red;
+    color: $serasi-error;
   }
 }
 .message {
   margin-top: 4px;
   font-size: 0.8rem;
-  color: #75767a;
+  color: $serasi-placeholder;
 }
 .reveal {
   padding: 0 12px;
 }
 .required {
-  color: red;
+  color: $serasi-error;
   display: inline-block;
   margin-right: 2px;
 }
