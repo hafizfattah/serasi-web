@@ -1,9 +1,11 @@
 import {DocsContainer, DocsPage} from '@storybook/addon-docs/blocks';
+import {withTests} from '@storybook/addon-jest';
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
 import {addDecorator, addParameters} from '@storybook/react';
 import {create, themes} from '@storybook/theming';
 import {withPerformance} from 'storybook-addon-performance';
 import {withThemes} from 'storybook-addon-themes/react';
+import results from '../coverage/jest-test-results.json';
 import '../src/styles/tailwind.scss';
 import './main.css';
 
@@ -38,6 +40,11 @@ const newViewports = {
 
 addDecorator(withPerformance);
 addDecorator(withThemes);
+addDecorator(
+  withTests({
+    results,
+  })
+);
 
 addParameters({
   a11y: {
