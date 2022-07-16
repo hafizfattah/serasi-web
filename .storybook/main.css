@@ -311,9 +311,12 @@ body {
   padding: 1rem;
 }
 
-.code {
-  -webkit-font-smoothing: subpixel-antialiased !important;
-  -moz-osx-font-smoothing: auto !important;
-  background: #f0f3f5 !important;
-  color: green !important;
+code {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  background: #f0f3f5;
+  color: #666d74;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 87.5%;
 }
