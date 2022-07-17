@@ -1,0 +1,4 @@
+{
+  "Button": "./src/components/General/Button/index.ts",
+  "TextField": "./src/components/Form/TextField/index.ts"
+}

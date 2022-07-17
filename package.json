@@ -3,6 +3,7 @@
   "author": "hafiz fattah",
   "description": "Another react component library",
   "version": "0.1.1",
+  "license": "MIT",
   "engines": {
     "node": ">=14.0.0",
     "yarn": "^1.22.0",
@@ -10,10 +11,10 @@
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -29,8 +30,11 @@
     "lint:css": "stylelint **/*.{scss,css} --custom-syntax postcss-scss",
     "lint:css:fix": "stylelint **/*.{scss,css} --fix --custom-syntax postcss-scss",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "rollup": "yarn clean && rollup -c"
+    "build": "yarn clean && yarn build:bundle && yarn build:post",
+    "build:bundle": "rollup -c",
+    "build:pre": "node scripts/build-entry-component.js",
+    "build:post": "rm -rf dist/cjs/components && rm -rf dist/esm/components",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

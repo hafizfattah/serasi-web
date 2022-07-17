@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 
 const pathTemplate = path.resolve(__dirname, './Templates');
 const pathComponentsIndex = path.resolve(__dirname, '../src/components/index.ts');
+const pathBuildEntry = path.resolve(__dirname, '../build-entry.json');
 
 function askQuestions() {
   const questions = [
@@ -73,12 +74,22 @@ function updateComponentsIndex() {
   fs.writeFileSync(pathComponentsIndex, content);
 }
 
+function updateBuildEntry() {
+  fs.readFile(pathBuildEntry, 'utf8', function (err, data) {
+    let obj = JSON.parse(data);
+    obj[componentData.name] = `./src/components/${componentData.type}/${componentData.name}/index.ts`;
+
+    fs.writeFileSync(pathBuildEntry, JSON.stringify(obj));
+  });
+}
+
 function run() {
   Promise.resolve()
     .then(askQuestions)
     .then(formatComponentData)
     .then(formatTemplate)
     .then(updateComponentsIndex)
+    .then(updateBuildEntry)
     .then(() => {
       // eslint-disable-next-line no-console
       console.info(`Your component successfully generated in ${componentData.path}`);
