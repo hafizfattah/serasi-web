@@ -32,9 +32,8 @@
     "storybook": "start-storybook -p 6006",
     "build": "yarn clean && yarn build:bundle && yarn build:post",
     "build:bundle": "rollup -c",
-    "build:pre": "node scripts/build-entry-component.js",
     "build:post": "rm -rf dist/cjs/components && rm -rf dist/esm/components",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
