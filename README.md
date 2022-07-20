@@ -25,35 +25,37 @@ or
 
 We ship two types of module formats: CommonJS and ESModules. Most modern build tools will use the latter resolved from the package.json module entry. To keep our module code as clean as possible, we try to use the latest possible ECMAScript version as target for our transpilation. So if you have to support browsers that don't support certain modern ECMAScript features, you may want to configure your build tools accordingly.
 
-### Import as Global Component
-
-With this kind of import, you will include the whole bundle of the library, but you can use all components directly.
-
-```
-import { SerasiProvider } from '@Hafizfattah/serasi-web'
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-
-ReactDOM.render(
-  <SerasiProvider>
-    <App />
-  </SerasiProvider>,
-)
-```
-
 ### Selective Import
 
-Don't forget to install babel-import-plugin and setup babel config, otherwise you'll include the whole bundle and can't resolve component's style
+Don't forget to install babel-import-plugin and setup babel config, otherwise you'll include the whole bundle.
 
-```
-import { Button, TextField } from '@Hafizfattah/serasi-web'
+```jsx
+import {Button, TextField} from '@Hafizfattah/serasi-web';
 
 const MyComponent = () => (
- <div>
-  <TextField label="Search" />
-  <Button variant="primary" size="large">
-    Submit
-  </Button>
- </div>
-)
+  <div>
+    <TextField label="Search" />
+    <Button variant="primary" size="large">
+      Submit
+    </Button>
+  </div>
+);
+```
+
+### Default Import
+
+You will only include the component and style that you've been imported. better at the size, hassle when write.
+
+```jsx
+import Button from '@Hafizfattah/serasi-web/dist/Button';
+import TextField from '@Hafizfattah/serasi-web/dist/TextField';
+
+const MyComponent = () => (
+  <div>
+    <TextField label="Search" />
+    <Button variant="primary" size="large">
+      Submit
+    </Button>
+  </div>
+);
 ```
