@@ -12,13 +12,13 @@ Serasi is typically installed into a project managed by npm or yarn as a JavaScr
 Now add this project as a dependency of your project with:
 
 ```
-  yarn add @Hafizfattah/serasi-web
+  yarn add @hafizfattah/serasi-web
 ```
 
 or
 
 ```
-  npm install @Hafizfattah/serasi-web
+  npm install @hafizfattah/serasi-web
 ```
 
 ## How to Use
