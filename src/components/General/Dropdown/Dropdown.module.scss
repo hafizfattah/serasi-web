@@ -1,0 +1,88 @@
+// Dropdown Style goes here
+@import '../../../styles/token.scss';
+
+.select {
+  cursor: pointer;
+}
+.select__wrapper {
+  width: auto;
+  display: inline-block;
+  min-width: 240px;
+  position: relative;
+
+  .select__content {
+    display: flex;
+    width: 100%;
+    border: 2px solid $serasi-primary;
+    border-radius: $serasi-radius-medium;
+    background-color: white;
+    padding-right: 24px;
+
+    .selected {
+      overflow: hidden;
+      padding: 12px;
+      display: block;
+      color: $serasi-placeholder;
+    }
+    .selected__text {
+      color: $serasi-primary;
+    }
+    .select__label {
+      position: absolute;
+      padding: 0 6px;
+      padding-top: 2px;
+      color: $serasi-primary;
+      top: -10px;
+      left: 6px;
+      font-size: 0.8rem;
+      background-color: white;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+
+    .icon {
+      position: absolute;
+      right: 6px;
+      top: 10px;
+      display: inline-block;
+    }
+  }
+
+  .select__fields {
+    position: absolute;
+
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    width: -webkit-fill-available;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(12px);
+    left: 0;
+    top: 100%;
+    border: 2px solid $serasi-primary;
+    margin-top: 6px;
+    border-radius: 4px;
+    background-color: white;
+    .select__option {
+      width: 100%;
+      padding: 12px;
+      border-bottom: 1px solid $serasi-placeholder;
+      cursor: pointer;
+      color: $serasi-primary;
+      &:hover {
+        background-color: $serasi-primary;
+        color: white;
+      }
+      &:last-child {
+        margin-bottom: 0;
+        border: none;
+      }
+    }
+  }
+
+  .open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

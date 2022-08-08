@@ -77,7 +77,7 @@ addParameters({
     },
   },
   canvas: {
-    theme: themes.dark,
+    theme: themes.light,
   },
   viewport: {
     viewports: {
