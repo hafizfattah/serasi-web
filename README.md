@@ -18,7 +18,7 @@ Now add this project as a dependency of your project with:
 or
 
 ```
-  npm install @Hafizfattah/serasi-web
+  npm install @hafizfattah/serasi-web
 ```
 
 ## How to Use
