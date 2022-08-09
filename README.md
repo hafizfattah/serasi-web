@@ -30,7 +30,7 @@ We ship two types of module formats: CommonJS and ESModules. Most modern build t
 Don't forget to install babel-import-plugin and setup babel config, otherwise you'll include the whole bundle.
 
 ```jsx
-import {Button, TextField} from '@Hafizfattah/serasi-web';
+import {Button, TextField} from '@hafizfattah/serasi-web';
 
 const MyComponent = () => (
   <div>
@@ -47,8 +47,8 @@ const MyComponent = () => (
 You will only include the component and style that you've been imported. better at the size, hassle when write.
 
 ```jsx
-import Button from '@Hafizfattah/serasi-web/dist/Button';
-import TextField from '@Hafizfattah/serasi-web/dist/TextField';
+import Button from '@hafizfattah/serasi-web/dist/Button';
+import TextField from '@hafizfattah/serasi-web/dist/TextField';
 
 const MyComponent = () => (
   <div>
